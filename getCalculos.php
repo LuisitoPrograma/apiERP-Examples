@@ -11,29 +11,38 @@ $apiERP = new apiERP();
 
 // Datos de ejemplo para enviar al API
 $productosAPI = [
-    "descuentoGlobalMonto" => 5,
-    "setPorcentajeIgv" => 18,
+    "descuentoGlobalMonto" => 5, // Descuento Global
+    "setPorcentajeIgv" => 18, // Monto Porcentaje Impuesto
     "items" => [
         [
             "valorUnit" => 0,
             "precioUnit" => 10,
             "valorCantidad" => 1,
             "valorPorcentajeIgv" => 18,
-            "setTipAfeIgv" => "10" // Gravado
+            "setTipAfeIgv" => "10", // Gravado
+            "setDescuento" => [
+                "setPorcentajeDesc" => 50 // Monto Porcentaje Descuento
+            ]
         ],
         [
             "valorUnit" => 0,
             "precioUnit" => 10,
             "valorCantidad" => 1,
             "valorPorcentajeIgv" => 18,
-            "setTipAfeIgv" => "20" // Exonerado
+            "setTipAfeIgv" => "20", // Exonerado
+            "setDescuento" => [
+                "setPorcentajeDesc" => 50 // Monto Porcentaje Descuento
+            ]
         ],
         [
             "valorUnit" => 0,
             "precioUnit" => 10,
             "valorCantidad" => 1,
             "valorPorcentajeIgv" => 18,
-            "setTipAfeIgv" => "30" // Inafecto
+            "setTipAfeIgv" => "30", // Inafecto
+            "setDescuento" => [
+                "setPorcentajeDesc" => 50 // Monto Porcentaje Descuento
+            ]
         ],
         [
             "valorUnit" => 0,
