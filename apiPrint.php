@@ -31,7 +31,7 @@ try {
     }
 
     // Extraer Respuesta
-    $response = $apiResponse['data'];
+    $response = $apiResponse['message'];
 
     // Establecer encabezado para JSON
     header('Content-Type: application/json');
