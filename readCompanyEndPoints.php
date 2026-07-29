@@ -11,7 +11,8 @@ try {
 
 //PAYLOAD
 $payload = [
-'setAuthToken' => ''
+'setAuthToken' => '',
+'setCompanyEndPointType' => 2 //OPCIONAL SOLO RETORNAR ENDPOINT DE READ COMPANY
 ];
 
 //PROCESS APIERP - CREATE COMPANY
@@ -22,7 +23,8 @@ $apierp_success = $apiResponse['success'];
 $apierp_message = $apiResponse['message'];
 
 //PRINT RESPONSE
-echo $apierp_message;
+header('Content-Type: application/json; charset=utf-8');
+echo json_encode($apierp_message, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 
 } catch (Throwable $e){
 echo json_encode(['success' => false, 'message' => 'No se pudo procesar la solicitud.'], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
