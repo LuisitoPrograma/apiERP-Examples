@@ -21,9 +21,21 @@ $payload = [
 //PROCESS APIERP - READ COMPANY ENDPOINTS
 $apiResponse = initializeApiERP()->readCompanyEndPoints($payload, false);
 
+//ENDPOINT READ COMPANY FASYB
+$endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoint'];
+
+//PAYLOAD READ COMPANY FASYB
+$payload_read_company_fasyb = [
+'setAuthToken' => $setAuthToken,
+'apiPOS_getAccessData' => 1
+];
+
+//PROCESS APIERP - READ COMPANY FASYB
+$apiResponse_read_company_fasyb = initializeApiERP()->readCompanyFasyb($payload_read_company_fasyb, $endpoint, false);
+
 //RESPONSE
-$apierp_success = $apiResponse['success'];
-$apierp_message = $apiResponse['message'];
+$apierp_success = $apiResponse_read_company_fasyb['success'];
+$apierp_message = $apiResponse_read_company_fasyb['message'];
 
 //PRINT RESPONSE
 header('Content-Type: application/json; charset=utf-8');
