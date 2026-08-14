@@ -27,12 +27,7 @@ $endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoin
 //PAYLOAD GET QR WHATSAPP
 $payload_get_qr_whatsapp = [
 'setAuthToken' => $setAuthToken,
-'setCredentialsApiWAChatId' => 1,
-'to' => '51999999999',
-'payload' => [
-'type' => 'text',
-'content' => 'Hola, este es un mensaje de prueba.'
-]
+'setCredentialsApiWAChatId' => 1
 ];
 
 //PROCESS APIERP - GET QR WHATSAPP
