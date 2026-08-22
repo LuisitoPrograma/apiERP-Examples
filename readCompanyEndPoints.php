@@ -6,16 +6,16 @@ declare(strict_types=1);
 //REQUIRE APIERP
 require_once(__DIR__ . '/apiERP/apierp_init.php');
 
-//DEFINIR AUTH TOKEN
-$setAuthToken = '';
+//DEFINIR MASTER AUTH TOKEN
+$setMasterAuthToken = '';
 
 //SECURITY TRY/CATCH
 try {
 
 //PAYLOAD
 $payload = [
-'setAuthToken' => $setAuthToken,
-'setCompanyEndPointType' => 8 //OPCIONAL SOLO RETORNAR ENDPOINT DE READ COMPANY FASYB
+'setMasterAuthToken' => $setMasterAuthToken,
+'setCompanyEndPointType' => 21 //OPCIONAL SOLO RETORNAR ENDPOINT DE SEND MESSAGE EMAIL
 ];
 
 //PROCESS APIERP - READ COMPANY ENDPOINTS

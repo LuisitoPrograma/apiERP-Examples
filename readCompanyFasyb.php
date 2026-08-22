@@ -6,15 +6,15 @@ declare(strict_types=1);
 //REQUIRE APIERP
 require_once(__DIR__ . '/apiERP/apierp_init.php');
 
-//DEFINIR AUTH TOKEN
-$setAuthToken = '';
+//DEFINIR MASTER AUTH TOKEN
+$setMasterAuthToken = '';
 
 //SECURITY TRY/CATCH
 try {
 
 //PAYLOAD
 $payload = [
-'setAuthToken' => $setAuthToken,
+'setMasterAuthToken' => $setMasterAuthToken,
 'setCompanyEndPointType' => 8 //OPCIONAL SOLO RETORNAR ENDPOINT DE READ COMPANY FASYB
 ];
 
@@ -23,6 +23,9 @@ $apiResponse = initializeApiERP()->readCompanyEndPoints($payload, false);
 
 //ENDPOINT READ COMPANY FASYB
 $endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoint'];
+
+//DEFINIR AUTH TOKEN API
+$setAuthToken = '';
 
 //PAYLOAD READ COMPANY FASYB
 $payload_read_company_fasyb = [
