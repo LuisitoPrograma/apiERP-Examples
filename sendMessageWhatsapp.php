@@ -12,18 +12,6 @@ $setMasterAuthToken = '';
 //SECURITY TRY/CATCH
 try {
 
-//PAYLOAD
-$payload = [
-'setMasterAuthToken' => $setMasterAuthToken,
-'setCompanyEndPointType' => 23 //OPCIONAL SOLO RETORNAR ENDPOINT DE SEND MESSAGE WHATSAPP
-];
-
-//PROCESS APIERP - READ COMPANY ENDPOINTS
-$apiResponse = initializeApiERP()->readCompanyEndPoints($payload, false);
-
-//ENDPOINT SEND MESSAGE WHATSAPP
-$endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoint'];
-
 //DEFINIR AUTH TOKEN API
 $setAuthToken = '';
 
@@ -39,7 +27,7 @@ $payload_send_message_whatsapp = [
 ];
 
 //PROCESS APIERP - SEND MESSAGE WHATSAPP
-$apiResponse_send_message_whatsapp = initializeApiERP()->sendMessageWhatsapp($payload_send_message_whatsapp, $endpoint, false);
+$apiResponse_send_message_whatsapp = initializeApiERP()->sendMessageWhatsapp($payload_send_message_whatsapp, $setMasterAuthToken, false);
 
 //RESPONSE
 $apierp_success = $apiResponse_send_message_whatsapp['success'];

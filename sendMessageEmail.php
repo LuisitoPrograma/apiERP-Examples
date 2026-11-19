@@ -12,18 +12,6 @@ $setMasterAuthToken = '';
 //SECURITY TRY/CATCH
 try {
 
-//PAYLOAD
-$payload = [
-'setMasterAuthToken' => $setMasterAuthToken,
-'setCompanyEndPointType' => 21 //OPCIONAL SOLO RETORNAR ENDPOINT DE SEND MESSAGE EMAIL
-];
-
-//PROCESS APIERP - READ COMPANY ENDPOINTS
-$apiResponse = initializeApiERP()->readCompanyEndPoints($payload, false);
-
-//ENDPOINT SEND MESSAGE EMAIL
-$endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoint'];
-
 //DEFINIR AUTH TOKEN API
 $setAuthToken = '';
 
@@ -42,7 +30,7 @@ $payload_send_message_email = [
 ];
 
 //PROCESS APIERP - SEND MESSAGE EMAIL
-$apiResponse_send_message_email = initializeApiERP()->sendMessageEmail($payload_send_message_email, $endpoint, false);
+$apiResponse_send_message_email = initializeApiERP()->sendMessageEmail($payload_send_message_email, $setMasterAuthToken, false);
 
 //RESPONSE
 $apierp_success = $apiResponse_send_message_email['success'];

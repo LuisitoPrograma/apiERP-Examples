@@ -12,18 +12,6 @@ $setMasterAuthToken = '';
 //SECURITY TRY/CATCH
 try {
 
-//PAYLOAD
-$payload = [
-'setMasterAuthToken' => $setMasterAuthToken,
-'setCompanyEndPointType' => 14 //OPCIONAL SOLO RETORNAR ENDPOINT DE CREATE COMPANY FASYB OPERATIONS
-];
-
-//PROCESS APIERP - READ COMPANY ENDPOINTS
-$apiResponse = initializeApiERP()->readCompanyEndPoints($payload, false);
-
-//ENDPOINT CREATE COMPANY FASYB OPERATIONS
-$endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoint'];
-
 //DEFINIR AUTH TOKEN API
 $setAuthToken = '';
 
@@ -34,7 +22,7 @@ $payload_create_company_fasyb_operations = [
 ];
 
 //PROCESS APIERP - CREATE COMPANY FASYB OPERATIONS
-$apiResponse_create_company_fasyb_operations = initializeApiERP()->createCompanyFasybOperations($payload_create_company_fasyb_operations, $endpoint, false);
+$apiResponse_create_company_fasyb_operations = initializeApiERP()->createCompanyFasybOperations($payload_create_company_fasyb_operations, $setMasterAuthToken, false);
 
 //RESPONSE
 $apierp_success = $apiResponse_create_company_fasyb_operations['success'];

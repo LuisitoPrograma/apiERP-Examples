@@ -12,18 +12,6 @@ $setMasterAuthToken = '';
 //SECURITY TRY/CATCH
 try {
 
-//PAYLOAD
-$payload = [
-'setMasterAuthToken' => $setMasterAuthToken,
-'setCompanyEndPointType' => 22 //OPCIONAL SOLO RETORNAR ENDPOINT DE GET QR WHATSAPP
-];
-
-//PROCESS APIERP - READ COMPANY ENDPOINTS
-$apiResponse = initializeApiERP()->readCompanyEndPoints($payload, false);
-
-//ENDPOINT GET QR WHATSAPP
-$endpoint = $apiResponse['message']['setCompanyEndPoints'][0]['setCompanyEndPoint'];
-
 //DEFINIR AUTH TOKEN API
 $setAuthToken = '';
 
@@ -34,7 +22,7 @@ $payload_get_qr_whatsapp = [
 ];
 
 //PROCESS APIERP - GET QR WHATSAPP
-$apiResponse_get_qr_whatsapp = initializeApiERP()->sendMessageWhatsapp($payload_get_qr_whatsapp, $endpoint, false);
+$apiResponse_get_qr_whatsapp = initializeApiERP()->sendMessageWhatsapp($payload_get_qr_whatsapp, $setMasterAuthToken, false);
 
 //RESPONSE
 $apierp_success = $apiResponse_get_qr_whatsapp['success'];
